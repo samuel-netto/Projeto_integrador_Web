@@ -1,0 +1,66 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbarAdmin') %>
+
+<div class="container">
+  <% if (msgSuccess != undefined && msgSuccess != '') { %>
+  <div class="alert alert-success mt-3" role="alert">
+    <%= msgSuccess %>
+  </div>
+  <% } %>
+
+  <% if (msgError != undefined && msgError != '') { %>
+  <div class="alert alert-danger mt-3" role="alert">
+    <%= msgError %>
+  </div>
+  <% } %>
+  <h3 class="text-center mt-4">Tabela de Pedidos</h3>
+  <table class="table table-bordered table-responsive">
+    <thead>
+      <tr>
+        <th>Id</th>
+
+        <th>Telefone</th>
+        <th>Endereço</th>
+        <th>Endereço2</th>
+        <th>Bairro</th>
+        <th>Referencia</th>
+        <th>Cep</th>
+        <th>Pedidos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Pedidos.forEach(pedido => { %>
+      <tr>
+        <td><%= pedido.id %></td>
+        <td><%= pedido.Telefone %></td>
+        <td><%= pedido.Endereco1 %></td>
+        <td><%= pedido.Endereco2 %></td>
+        <td><%= pedido.Bairro %></td>
+        <td><%= pedido.Referencia %></td>
+        <td><%= pedido.Cep %></td>
+        <td><%= pedido.Pedido %></td>
+        <td>
+          <div class="row">
+            <div class="col-8 col-md-2 mt-1">
+              <form class="form-inline" action="/pedidos/itempedido/delete" method="post" onsubmit="confimarExclusao(event, this)">
+                <div class="form-group mb-2">
+                  <input class="form-control" type="hidden" name="id" value="<%= pedido.id  %>"/>
+                  <button class="btn btn-danger">Excluir</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<script>
+  function confimarExclusao(e, form) {
+    e.preventDefault();
+    const decision = confirm("Você quer deletar esse usuário?");
+    if (decision) form.submit();
+  }
+</script>
+<%- include('../partials/footer') %>

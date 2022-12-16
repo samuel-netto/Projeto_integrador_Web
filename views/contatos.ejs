@@ -1,0 +1,112 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+    <div class="container">
+      
+        <h4>Entre em contato conosco</h4>
+        <form action="/contatos/cadastro/save" method='post'>
+          <div class="row g-3">
+
+          <div class="col-12">
+            <label for="Endereco1" class="form-label">Endereço*</label>
+            <input type="text" class="form-control" id="Endereco1" name='Endereco1'
+              placeholder="Rua, número e bairro. ">
+          </div>
+          <div class="col-12">
+            <label for="Endereco2" class="form-label">Endereço 2*</label>
+            <input type="text" class="form-control" id="Endereco2" name='Endereco2'
+              placeholder="Apartmento, estudio ou andar.">
+          </div>
+          <div class="col-md-6">
+            <label for="Referencia" class="form-label">Referencia*</label>
+            <input type="text" class="form-control" id="Referencia" name='Referencia'>
+          </div>
+          <div class="col-md-2">
+            <label for="Bairro" class="form-label">Bairro*</label>
+            <input type="text" class="form-control" id="Bairro" name='Bairro'>
+          </div>
+
+          <div class="col-md-2 col-lg-2">
+            <label for="telefone" class="form-label">Telefone*</label>
+            <input type="text" class="form-control" id="Telefone" name='Telefone'>
+          </div>
+          <div class="col-md-2">
+            <label for="Cep" class="form-label">Cep</label>
+            <input type="number" class="form-control" id="Cep" name='Cep'>
+          </div>
+          <div class="col-12">
+            <label for="Pedido" class="form-label">Pedido*</label>
+            <input placeholder='Escreva aqui seu Pedido' type="text" class="form-control" id="Pedido"
+              name='Pedido'>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </div>
+        </div>
+        </form>
+     
+    </div>
+    <div class="container mt-3">
+      <div class="row d-flex">
+        <div class="card mb-2" style="width: 120rem;">
+          <div class="card-header bg-light justify-content-center">
+            Contatos
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="nav-item mb-2 list-unstyled">
+              <a class="nav-link active text-white" aria-current="page" target="_blank"
+                href="tel: +55 (64)9 99995555"><i class="bi bi-telephone text-black">+55 (64)9 99995555</i></a>
+            </li>
+            <li class="nav-item mb-2 list-unstyled">
+              <a class="nav-link active text-white" aria-current="page" target="_blank" href="tel: +55 (64)34425555"><i
+                  class="bi bi-telephone text-black">+55 (64)34425555</i></a>
+            </li>
+            <li class="nav-item me-2 list-unstyled">
+              <a class="nav-link text-white" target="_blank" href="mailto:Pizzariadomramon@gmail.com"><i
+                  class="bi bi-envelope text-black">PizzariaDonRamon@gmail.com</i></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card mb-2" style="width: 120rem;">
+          <div class="card-header bg-light">
+            Redes Sociais
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-inline-item">
+              <a class="nav-link text-dark" target="_blank" href="https://pt-br.facebook.com/PizzariaDonRuan/"><i
+                  class="bi bi-facebook">Facebook</i>
+
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="nav-link text-dark" target="_blank" href="https://www.instagram.com/PizzariaDonRuan/"><i
+                  class="bi bi-instagram">Instagram</i>
+
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="nav-link text-dark" target="_blank" href="https://www.youtube.com/c/PizzariaDonRuan"><i
+                  class="bi bi-youtube">Youtube</i>
+
+              </a>
+            </li>
+          </ul>
+
+        </div>
+        <div class="card mb-5" style="width: 120rem;">
+          <div class="card-header bg-light">
+            Endereço
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-inline-item">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14797.101047700184!2d-47.9003562!3d-22.0007616!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x269dd2c5c3489308!2sDom%20Ramon!5e0!3m2!1spt-BR!2sbr!4v1662743869951!5m2!1spt-BR!2sbr"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <%- include('partials/footer') %>

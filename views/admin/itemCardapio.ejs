@@ -1,0 +1,62 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbarAdmin') %>
+
+<div class="container">
+  <% if (msgSuccess != undefined && msgSuccess != '') { %>
+    <div class="alert alert-success mt-3" role="alert">
+      <%= msgSuccess %>
+    </div>
+  <% } %>
+
+  <% if (msgError != undefined && msgError != '') { %>
+    <div class="alert alert-danger mt-3" role="alert">
+      <%= msgError %>
+    </div>
+  <% } %>
+  <h3 class="text-center mt-4">Tabela de Usuários</h3>
+  <table class="table table-bordered table-responsive">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% dados.forEach(dados => { %>
+      <tr>
+        <td><%= dados.id %></td>
+        <td><%= dados.nome %></td>
+        <td><%= dados.descricao %></td>
+        <td><%= dados.preco%></td>
+        <td>
+          <div class="row">
+            <div class="col-8 col-md-2 mt-1 me-3">
+              <a href="/itemcardapio/edit/<%= dados.id %>" class="btn btn-warning me-2"
+                role="button">Editar</a>
+            </div>
+            <div class="col-8 col-md-2 mt-1">
+              <form class="form-inline" action="/cardapio/itemcardapio/delete" method="post"
+                onsubmit="confimarExclusao(event, this)">
+                <div class="form-group mb-2">
+                  <input class="form-control" type="hidden" name="id" value="<%= dados.id  %> " />
+                  <button class="btn btn-danger">Excluir</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<script>
+  function confimarExclusao(e, form) {
+    e.preventDefault();
+    const decision = confirm("Você quer deletar esse usuário?");
+    if (decision) form.submit();
+  }
+</script>
+<%- include('../partials/footer') %>

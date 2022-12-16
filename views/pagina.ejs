@@ -1,0 +1,45 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<div class="container">
+  <h1 class="text-center display-4 text-dark mt-3"> Nosso Menu: </h2>
+  <hr>
+  <% dados.forEach(dado => { %>
+  <div class="card mt-3 shadow-lg">
+    <div class="card-header bg-secondary">
+      <h5 class="text-white"><i><%= dado.nome %></i></h4>
+    </div>
+    <div class="card-body">
+      <p class="border-bottom border-end"><%= dado.descricao %></p>
+      <h5>R$<i> <%= parseFloat(dado.preco).toFixed(2) %></i></h5>
+      <div class="row">
+        <div class="col-6">
+          <img class="img-fluid rounded" src="/img/<%= dado.img %>" alt="<%= dado.nome %>">
+        </div>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+  <hr>
+  <div class="row">
+    <nav>
+      <ul class="pagination row text-center">
+        <% if (pages > 1 && current < pages) { %>
+        <li class="page-item">
+          <a class="page-link shadow-sm text-secondary" href="/pagina/<%= parseInt(current) + 1 %> ">Próxima</a>
+        </li>
+        <% } %>
+      </ul>
+      <ul class="pagination row text-center">
+        <% if (pages > 1 && current >= pages) { %>
+        <li class="page-item">
+          <a class="page-link shadow-sm text-secondary" href="/pagina/<%= parseInt(current) - 1 %> ">Anterior</a>
+        </li>
+        <% } %>
+      </ul>
+    </nav>
+  </div>
+  <hr>
+</div>
+
+<%- include('partials/footer') %>

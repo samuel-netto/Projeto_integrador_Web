@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+
+
+<div class="container">
+    <hr>
+    <h2 class="text-center">Items do nosso cardápio</h2>
+    <hr>
+    <% dados.forEach(dado => { %>
+    <div class="card mt-3">
+      <div class="card-header">
+        <h4><%= dado.nome %></h4>
+      </div>
+      <div class="card-body">
+        <p><%= dado.descricao %></p>
+        <h5>R$<%= dado.preco %></h5>
+        <div class="row">
+          <div class="col-6">
+            <img class="img-fluid" src="/img/<%= dado.img %>" alt="<%= dado.nome %>">
+          </div>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+    <hr>
+    <div class="row">
+      <nav>
+        <ul class="pagination">
+          <% if (pages > 1) { %>
+          <li class="page-item">
+            <a class="page-link" href="/pagina/<%= current + 1 %> ">Próxima</a>
+          </li>
+          <% } %>
+        </ul>
+      </nav>
+    </div>
+    <hr>
+  </div>
+<%- include('partials/footer') %>

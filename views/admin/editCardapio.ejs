@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+
+<div class="container">
+  <hr>
+  <h2 class="text-center">### Editar item do cardápio ###</h2>
+  <hr>
+  <form action="/admin/cardapio/edit" method="post">
+    
+    <input type="hidden" name="id" value="<%= dados.id %>">
+
+    <label for="nome">Nome:</label>
+    <input class="form-control" type="text" name="nome" value="<%= dados.nome %>">
+    <br>
+    <label for="descricao">Descrição:</label>
+    <input class="form-control" type="text" name="descricao" value=" <%= dados.descricao%>">
+    <label for="preco">Preço:</label>
+    <input class="form-control" type="number" name="preco" value=" <%= dados.preco%>">
+    <label for="image">Imagem:</label>
+    <img src="/img/Pizzas/<%= dados.image%>" alt="">
+    <input class="form-control" type="file" name="image" value=" <%= dados.image%>">
+    <br>
+    <button class="btn btn-dark" type="submit">Salvar</button>
+  </form>
+  
+</div>
+
+<%- include('../partials/footer') %>

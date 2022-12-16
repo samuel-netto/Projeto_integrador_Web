@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+
+<div class="container">
+  <hr>
+  <h2 class="text-center">### Editar Usuário ###</h2>
+  <hr>
+  <form action="/admin/user/edit" method="post">
+    
+    <input type="hidden" name="id" value="<%= user.id %>">
+
+    <label for="username">Usuário:</label>
+    <input class="form-control" type="text" name="username" value="<%= user.username %>">
+    <br>
+    <label for="password">Senha:</label>
+    <input class="form-control" type="password" name="password" value="<%= user.password %>">
+    <br>
+    <button class="btn btn-dark" type="submit">Salvar</button>
+  </form>
+  
+</div>
+
+<%- include('../partials/footer') %>
